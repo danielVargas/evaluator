@@ -15,4 +15,6 @@
 //= require react
 //= require react_ujs
 //= require components
+//= require ReactRouter.min
+//= require prop-types.min
 //= require_tree .
