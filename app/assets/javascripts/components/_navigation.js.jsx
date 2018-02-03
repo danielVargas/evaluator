@@ -15,16 +15,6 @@ class Navigation extends React.Component {
 				 Agregar estudiante
 				</a>
 			  </li>
-			  <li>
-			    <a href="students#/edit">
-			     Editar estudiante
-				</a>
-			  </li>
-			  <li>
-			    <a href="students#/view">
-				  Ver estudiante
-			  	</a>
-			  </li>
         </div>
     );
   }

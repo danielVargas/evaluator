@@ -24,14 +24,12 @@ class StudentsController < ApplicationController
   # POST /students
   # POST /students.json
   def create
-    @student = Student.new(student_params)
-
+    @student= Student.new
+    @student.name = params[:name]
     respond_to do |format|
       if @student.save
-        format.html { redirect_to @student, notice: 'Student was successfully created.' }
-        format.json { render :show, status: :created, location: @student }
+        format.json { render :show, status: :created, location: @student }  
       else
-        format.html { render :new }
         format.json { render json: @student.errors, status: :unprocessable_entity }
       end
     end
@@ -41,11 +39,9 @@ class StudentsController < ApplicationController
   # PATCH/PUT /students/1.json
   def update
     respond_to do |format|
-      if @student.update(student_params)
-        format.html { redirect_to @student, notice: 'Student was successfully updated.' }
+      if @student.update(name: params[:name])
         format.json { render :show, status: :ok, location: @student }
       else
-        format.html { render :edit }
         format.json { render json: @student.errors, status: :unprocessable_entity }
       end
     end
@@ -56,7 +52,6 @@ class StudentsController < ApplicationController
   def destroy
     @student.destroy
     respond_to do |format|
-      format.html { redirect_to students_url, notice: 'Student was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

@@ -19,4 +19,10 @@
 //= require ReactRouter.min
 //= require prop-types.min
 //= require bootstrap.min
+//= require alertify.min
 //= require_tree .
+
+$.urlParam = function(name){
+	var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+	return results[1] || 0;
+}
