@@ -1,32 +1,29 @@
 class Student extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      student: ''
-    };
-  }
-  componentDidMount() {
-    $.getJSON('/students/'+$.urlParam('student_id')+'.json', (response) => { 
-      console.log(response);
-      this.setState({ student: response}) 
-    });
   } 
   render() {
-    const student = []
-    if (this.state.student != '' ){
-      console.log(this.state.student);
-      student.push(
-          <p>
-            <strong>Nombre: </strong>
-            {this.state.student.name}
-          </p>
-      );
-      
-    }
     return (
-      <div>
-      	{student}
-      </div>
+      <tr key={this.props.student.id} >
+            <td>{this.props.student.id}</td>
+            <td>{this.props.student.name}</td>
+            <td>
+              <a href={"students#/edit?student_id="+ this.props.student.id}>
+               Editar estudiante
+              </a>
+            </td> 
+            <td>
+              <a href={"students#/view?student_id="+ this.props.student.id}>
+              Ver estudiante
+              </a>
+            </td>
+            <td>
+              <a href="#" onClick={this.props.handleDelete} id={this.props.student.id}>
+              Eliminar estudiante
+              </a>
+            </td>
+            
+       </tr>
     );
   }
 }

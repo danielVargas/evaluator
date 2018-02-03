@@ -32,26 +32,11 @@ class Students extends React.Component {
     if (this.state.students.length > 0){
       this.state.students.forEach((student) => {
         students.push(
-          <tr key={student.id} >
-            <td>{student.id}</td>
-            <td>{student.name}</td>
-            <td>
-              <a href={"students#/edit?student_id="+ student.id}>
-               Editar estudiante
-              </a>
-            </td> 
-            <td>
-              <a href={"students#/view?student_id="+ student.id}>
-              Ver estudiante
-              </a>
-            </td>
-            <td>
-              <a href="#" onClick={this.handleDelete} id={student.id}>
-              Eliminar estudiante
-              </a>
-            </td>
-            
-          </tr>
+          <Student 
+            key={student.id}
+            student={student}
+            handleDelete={this.handleDelete}
+          />
         );
       });
       

@@ -58,7 +58,7 @@ class EditStudent extends React.Component {
     }
     return (
       <div>
-      	Edit estudiante
+      	Editar estudiante
         {student}
       </div>
     );

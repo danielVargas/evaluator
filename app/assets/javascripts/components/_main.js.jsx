@@ -20,14 +20,14 @@ class Main extends React.Component {
 	return (
       <div>
       	  <Navigation 
-      	  	key={"main-checkout-steps"}
+      	  	key={"main-steps"}
           />
 		  <br/>
 		  <Router history={hashHistory} >
 		      <Route exact path="/" component={Students} onEnter={this.handleStepChange} />
 		      <Route path="/add" component={AddStudent} onEnter={this.handleStepChange} />
 		      <Route path="/edit" component={EditStudent} onEnter={this.handleStepChange} />
-		      <Route path="/view" component={Student} onEnter={this.handleStepChange} />
+		      <Route path="/view" component={ShowStudent} onEnter={this.handleStepChange} />
 		  </Router>
 	</div>
     );
